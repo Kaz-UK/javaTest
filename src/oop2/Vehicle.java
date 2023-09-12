@@ -1,6 +1,6 @@
 package oop2;
 
-public class Vehicle {
+public abstract class Vehicle {
 
     private int id;
     private String name;
@@ -20,6 +20,8 @@ public class Vehicle {
         this.engineSize = engineSize;
         this.colour = colour;
     }
+
+    public abstract double calculateBill();
 
     public String toString() {
         return "Vehicle {" +

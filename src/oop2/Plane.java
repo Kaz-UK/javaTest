@@ -8,4 +8,9 @@ public class Plane extends Vehicle {
     public Plane(int id, String name, int yearOfManufacture, double engineSize, String colour) {
         super(id, name, yearOfManufacture, engineSize, colour);
     }
+
+    @Override
+    public double calculateBill() {
+        return 10000;
+    }
 }

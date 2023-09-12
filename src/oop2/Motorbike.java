@@ -8,4 +8,9 @@ public class Motorbike extends Vehicle {
     public Motorbike(int id, String name, int yearOfManufacture, double engineSize, String colour) {
         super(id, name, yearOfManufacture, engineSize, colour);
     }
+
+    @Override
+    public double calculateBill() {
+        return 250;
+    }
 }

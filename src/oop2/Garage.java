@@ -21,35 +21,39 @@ public class Garage {
     }
 
     public void removeVehicleByType(String vehicleType) {
-        switch (vehicleType) {
-            case "car":
-                vehicles.removeIf(vehicle -> vehicle instanceof Car);
-                break;
-            case "plane":
-                vehicles.removeIf(vehicle -> vehicle instanceof Plane);
-                break;
-            case "motorbike":
-                vehicles.removeIf(vehicle -> vehicle instanceof Motorbike);
-                break;
+        List<Vehicle> toRemove = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
+            if(vehicle.getClass().getSimpleName().equalsIgnoreCase(vehicleType)) {
+                toRemove.add(vehicle);
+            }
         }
+        this.vehicles.removeAll(toRemove);
     }
 
     public void emptyGarage() {
         vehicles.clear();
     }
 
-    public void produceBill() {
+//    public void produceBill() {
+//        for (Vehicle vehicle : vehicles) {
+//            if (vehicle instanceof Car) {
+//                System.out.println("Bill: " + vehicle.getName() + " Cost £" + vehicle.getId() * 2);
+//            } else if (vehicle instanceof Motorbike) {
+//                System.out.println("Bill: " + vehicle.getName() + " Cost £" + vehicle.getYearOfManufacture() * 2);
+//            } else if (vehicle instanceof Plane) {
+//                System.out.println("Bill: " + vehicle.getName() + " Cost £" + vehicle.getEngineSize() * 2);
+//            } else {
+//                System.out.println("Free service!");
+//            }
+//        }
+//    }
+
+    public double produceBill() {
+        double bill = 0;
         for (Vehicle vehicle : vehicles) {
-            if (vehicle instanceof Car) {
-                System.out.println("Bill: " + vehicle.getName() + " Cost £" + vehicle.getId() * 2);
-            } else if (vehicle instanceof Motorbike) {
-                System.out.println("Bill: " + vehicle.getName() + " Cost £" + vehicle.getYearOfManufacture() * 2);
-            } else if (vehicle instanceof Plane) {
-                System.out.println("Bill: " + vehicle.getName() + " Cost £" + vehicle.getEngineSize() * 2);
-            } else {
-                System.out.println("Free service!");
-            }
+            bill += vehicle.calculateBill();
         }
+        return bill;
     }
 
     public String toString() {

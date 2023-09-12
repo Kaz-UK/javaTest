@@ -40,7 +40,7 @@ public class Runner {
         garage.addVehicle(plane1);
         garage.addVehicle(motorbike1);
 
-        garage.produceBill();
+        System.out.println(garage.produceBill());
 
         System.out.println(garage);
 
@@ -51,9 +51,10 @@ public class Runner {
 
         System.out.println(garage);
 
-        garage.emptyGarage();
+        // garage.emptyGarage();
 
         System.out.println(garage);
+
 
     }
 }
