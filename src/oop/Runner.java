@@ -1,5 +1,7 @@
 package oop;
 
+import oop2.Flyable;
+
 public class Runner {
     public static void main(String[] args) {
         Animal dog = new Animal();

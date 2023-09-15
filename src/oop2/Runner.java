@@ -1,7 +1,7 @@
 package oop2;
 
 public class Runner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws VehichleNotFoundException {
 
         Car car1 = new Car();
         car1.setId(1);
@@ -54,6 +54,8 @@ public class Runner {
         // garage.emptyGarage();
 
         System.out.println(garage);
+
+        System.out.println(garage.findById(1));
 
 
     }

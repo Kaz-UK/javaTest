@@ -18,12 +18,14 @@ public class Garage {
             }
         }
         return false;
+
     }
+
 
     public void removeVehicleByType(String vehicleType) {
         List<Vehicle> toRemove = new ArrayList<>();
         for (Vehicle vehicle : vehicles) {
-            if(vehicle.getClass().getSimpleName().equalsIgnoreCase(vehicleType)) {
+            if (vehicle.getClass().getSimpleName().equalsIgnoreCase(vehicleType)) {
                 toRemove.add(vehicle);
             }
         }
@@ -61,4 +63,14 @@ public class Garage {
                 "Vehicle in garage: " + vehicles +
                 '}';
     }
+
+    public Vehicle findById(int Id) throws VehichleNotFoundException {
+        for (Vehicle v : this.vehicles) {
+            if (v.getId() == Id) {
+                return v;
+            }
+            }
+            throw new VehichleNotFoundException("No vehicle with this id " + Id);
+
+        }
 }
